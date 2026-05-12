@@ -31,19 +31,20 @@ HTTP サーバや非同期処理を Sinatra 風に書くための **11 モジュ
 
 ## 使い方
 
-### 1. spinel-packer で vendor
-
-```ruby
-# Spinelfile
-spinel "0.1"
-use "gorin9/spnl-web", sha: "<commit_sha>"
-```
+### 1. spinel-packer で取得
 
 ```sh
-$ spinel-packer vendor
-  → gorin9/spnl-web @ <sha> ... ok (11 files)
+$ spinel-packer install gorin9/spnl-web
+  resolving gorin9/spnl-web@main ...
+  resolved → <sha>
+  fetched gorin9/spnl-web into vendor/gorin9__spnl-web (13 files)
+  Spinelfile + Spinelfile.lock updated
 done.
 ```
+
+これで `Spinelfile`, `Spinelfile.lock`, `vendor/gorin9__spnl-web/` が
+全部生成される。`vendor/` は `.gitignore` で除外、`Spinelfile.lock`
+はコミット推奨 (`spinel-packer install` (引数なし) で再現可能になる)。
 
 ### 2. アプリで require_relative
 
@@ -131,7 +132,7 @@ end
 ## 関連プロジェクト
 
 - [matz/spinel](https://github.com/matz/spinel) — 本家 Spinel コンパイラ
-- [gorin9/spinel-packer](https://github.com/gorin9/spinel-packer) — vendor / lock / pack ツール
+- [gorin9/spinel-packer](https://github.com/gorin9/spinel-packer) — install / upgrade / lock / check / pack ツール
 - [gorin9/spinel-demo](https://github.com/gorin9/spinel-demo) — 本ライブラリを使った動作デモ
 
 ## ライセンス
