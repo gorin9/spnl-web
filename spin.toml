@@ -1,0 +1,4 @@
+[package]
+name = "spnl_web"
+version = "0.2.0"
+sources = ["native/*.c"]

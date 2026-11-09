@@ -4,3 +4,8 @@ Spinelfile.lock
 /build/
 /tmp/
 /vendor/
+
+/.bundle/
+/*.gem
+/Gemfile.lock
+/spin.lock
